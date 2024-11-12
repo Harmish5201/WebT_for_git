@@ -1,0 +1,236 @@
+/* General Body css */
+body{
+    margin-top: -1px;
+    margin-left: -1px;
+    margin-right: -1px;
+    height: 100%;
+    overflow: hidden;
+}
+
+h1{ 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Everything below for General Navigation top bar */
+.Navigation a{
+    color: black;
+    text-decoration: none;
+    margin: 10px;
+
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.ClassForNav  {
+    align-items: center;
+    display: flex;
+}
+
+.Navigation{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;       
+    background-color: #f8f8f8;
+    position: relative;
+    height: 50px;
+}
+
+/* General Classes for all the web pages*/
+.BackgroundImage{
+    position: fixed;
+    background-image: url('../img/Sneaker.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;     
+    filter: blur(5px);
+    height: 102%;
+    width: 102%;
+    margin: -1%;
+}
+
+.BoxForContents {
+    position: relative;
+    border-radius: 10px;
+    width: 60%;
+    padding: 20px;
+    
+    background-color: #f8f8f8;
+    opacity: 97%;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 50px auto auto auto;
+    display:flex;
+    flex-direction: column;
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+/* Everything below for index.html */
+.indexBody{
+    margin-left: -1px; 
+    background-color: #f8f8f8;
+}
+
+/* Everything below for login.html, register.html and customer.html*/
+
+.Labels{
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.inputBox{
+    background: #ecebeb;
+    border: #ecebeb;
+    border-radius: 10px;
+    
+    height: 35px;
+    width: 250px;
+
+    display: flex;
+    text-align: center;
+    margin: 2px auto;
+    font-size: 15px;
+}
+
+.inputButton{
+    background-color: #FB4224;
+    color: white;
+    cursor: pointer;
+
+    border: #ecebeb;
+    border-radius: 10px;
+
+    height: 35px;
+    width: 115px;
+
+    margin: 5px;
+}
+
+.inputButton a{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    width: 100px;
+}
+
+.inputButton:hover{
+    background-color: #FF8C00; 
+}
+
+
+
+/* Everything below for logout.html */
+.loginLink{
+    color: #FB4224;
+    text-decoration:none; 
+}
+
+.loginLink:hover{
+    color: #FF8C00; 
+}
+
+
+
+/* Everything below for about.html */
+.StoreInformation{
+    font-weight: normal;
+    font-family: cursive;
+}
+
+
+
+/* This is not to be used in this Task DO NOT DELETE!
+.categoryProducts{ /* for images */ /*
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 10px;
+}
+
+.ImageButton{
+    border: #f8f8f8;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    
+    margin: 5px;;
+    width: 200px;
+    height: 200px;
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 17px;
+
+    /* transition: all 0.3s ease; */ /*
+}
+
+.ImageButton:hover{
+    cursor: pointer;
+    transform: scale(1.10);
+}
+
+*/
+
+
+
+
+/* Everything below for categories.html */
+
+.CategoryImg{ /* Col1 */
+    height: 150px;
+    width: 150px;
+}
+
+.CategoryImg img{
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+}
+
+.CategoryIntro{ /* Col2 */
+    height: 150px;
+    width: 90%;
+    padding-left: 15px;
+}
+
+.CategoryRow{
+    height: 170px;
+    transition: all 0.3s ease;
+}
+
+.CategoryRow:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.ListForMainCategory table{
+    border-collapse: collapse;
+}
+
+.ListForMainCategory{
+    list-style-type: none;
+}
+
+.ListForSubCategory{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ListForSubCategory li{
+    margin: 5px 25px 5px 0px;
+    display: inline;
+}
+
+.ListForSubCategory a{
+    color: #FF8C00;
+    text-decoration:none; 
+}
+
+.ListForSubCategory a:hover{
+    color: #FB4224;
+}

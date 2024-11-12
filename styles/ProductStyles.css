@@ -1,0 +1,105 @@
+/* Override */
+.ProductBody{
+    overflow: scroll !important;
+    padding-bottom: 50px;
+    height: unset;
+}
+
+.BoxForContents{
+    width: 90% !important;
+}
+
+h2{
+    font-size: 30px;
+}
+
+
+/* Others */
+.ProductImg{
+    height: 650px;
+    width: 440px;
+}
+
+.ProductImg img{
+    height: 650px;
+    width: 440px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.ProductInfo{
+    padding: 10px;
+
+    display: block; /*Override */
+    text-align: justify;
+
+    font-size: 20px;
+}
+
+.ProductForm{
+    margin: 10px auto auto auto;
+}
+
+.ProductForm table{
+    font-size: unset;
+    font-weight: 500;
+}
+
+.ProductForm table td{
+    width: 100px;
+}
+
+.ProductForm label{
+    font-weight: normal;
+}
+
+.ProductForm button{
+    background-color: #1C191A;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    height: 65px;
+    width: 125px;
+    margin: 25px 5px 5px 5px;
+
+    border: #ecebeb;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.ProductForm button:hover {
+    background-color: #3C3B3C; 
+    transform: scale(1.05); 
+    border: 1px solid #ffffff; 
+}
+
+.ProductForm input, .ProductForm select{
+    background-color: #f8f8f8;
+    border: 0;
+    height: 45px;
+    font-size: 19px;
+    font-family: Arial;
+    width: 65px;
+    border-radius: 10px;
+}
+
+.ProductForm select{
+    margin-left: -5px;
+}
+
+
+.ProductForm input:hover, .ProductForm select:hover{
+    border: 0.5px solid #ccc; 
+    cursor: pointer; 
+}
+
+.ProductForm table tr{
+    height: 50px;
+}
+
+.SizeChartTable{
+    width: 100%; 
+    height: 260px; 
+    border: none;
+}
