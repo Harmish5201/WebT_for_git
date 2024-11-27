@@ -1,24 +1,80 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Homepage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- SEO & Social Sharing Purposes, For study -->
+	<meta name="description" content="A brief description of your site.">
+	<meta name="keywords" content="HTML, CSS, website, tutorial">
+	<meta name="author" content="Your Name">
+
+	<!-- open Graph -->
+	<meta property="og:title" content="Your Page Title">
+	<meta property="og:description" content="Description of the page">
+	<meta property="og:image" content="image.jpg">
+	<meta property="og:url" content="https://yourwebsite.com">
+
+	<!-- custom Fonts-->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+	<!--Cross-Browser Compatibility-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+	<title>StepX</title>
 	<link rel="stylesheet" href="styles/mystyles.css">
 	<link rel="icon" href="img/icon.png">
-
+	<script src="js/global.js"></script>
 </head>
 <body class="indexBody">
-	<div class="Navigation">
-		<h1><a href="index.html">STEPX</a></h1>
+	<div class="Navigation" id = "navbar">
+		<h1><a href="index.html">StepX</a></h1>
 		<nav class="ClassForNav">
+
+			<!-- Hidden when widht > 480px -->
+			<div class="ListForNav">
+				<img src="img/icon.png" style="display: none;" onload="checkDarkMode()"> <!--Dummy image load-->
+				<select id="navSelect" onchange="navigateToPage()">
+					<option value="" hidden style="text-align: right;">Goto</option>
+					<option value="login.html">Login</option>
+					<option value="categories.html">Categories</option>
+					<option value="catalog.html">Catalog</option>
+					<option value="about.html">About Us</option>
+					<option value="cart.html">Cart</option>
+				</select>
+			</div>
+
+			<!-- Hidden when width < 490px -->
 			<table class="TableForNav">
 				<tr>
-					<td><a href="login.html">Login-from harmish</a></td>
+					<td><a href="login.html">Login</a></td>
 					<td><a href="categories.html">Categories</a></td>
+                    <td><a href="catalog.html">Catalog</a></td>
 					<td><a href="about.html">About Us</a></td>
 					<td><a href="cart.html">Cart</a></td>
+					<td><button onclick="DarkMode()" class="inputButton ToggleDarkModeButton">🌗</button></td>
 				</tr>
 			</table>
 		</nav>
 	</div>
-<img src = "img/Sneaker.jpg" alt = "Sneaker Image" style="object-fit: cover; display: block; width: 100vw; height: 100vh;">
+	
+<div class="BoxForPopups">
+	<dialog id="popup" open>
+		<h2>Welcome to <strong>StepX</strong></h2>
+		<p>We have added a new <b>Catalog</b> to our website. Click Go to check it!</p>
+			<button onclick="window.location.href = 'catalog.html'">Go</button>
+			<button onclick="document.getElementById('popup').close()">Close</button>
+	</dialog>
+
+	<dialog id="popup2" open>
+		<p>We have added a new <b>Dark Mode</b> button to our website. Click 🌗 to check it!<br><i style="margin-top: 5px;">(Available in DesktopView)</i></p>
+			<button onclick="document.getElementById('popup2').close()">Ok</button>
+			<button onclick="document.getElementById('popup2').close()">Close</button>
+	</dialog>
+</div>
+
+<img src = "img/Sneaker.jpg" alt = "Sneaker Image" class="IndexImage" id="indexImg">
 </body>
 </html>

@@ -1,41 +1,50 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
-            Categories
+            StepX
         </title>
         <link rel="stylesheet" href="styles/mystyles.css">
         <link rel="icon" href="img/icon.png">
+        <script src="js/global.js"></script>
     </head>
 
     <body class="CategoryBody">
         <div class="BackgroundImage"></div> <!-- Background image container -->
-        <div class="Navigation">
-            <h1><a href="index.html">STEPX</a></h1>
+        <div class="Navigation" id="navbar">
+            <h1><a href="index.html">StepX</a></h1>
             <nav class="ClassForNav">
+
+                <!-- Hidden when widht > 480px -->
+                <div class="ListForNav">
+                    <img src="img/icon.png" style="display: none;" onload="checkDarkMode()"> <!--Dummy image load-->
+                    <select id="navSelect" onchange="navigateToPage()">
+                        <option value="" hidden style="text-align: right;">Goto</option>
+                        <option value="login.html">Login</option>
+                        <option value="categories.html">Categories</option>
+                        <option value="catalog.html">Catalog</option>
+                        <option value="about.html">About Us</option>
+                        <option value="cart.html">Cart</option>
+                    </select>
+                </div>
+
+                
                 <table class="TableForNav">
                     <tr>
                         <td><a href="login.html">Login</a></td>
+                        <td><a href="categories.html">Categories</a></td>
+                        <td><a href="catalog.html">Catalog</a></td>
                         <td><a href="about.html">About Us</a></td>
                         <td><a href="cart.html">Cart</a></td>
+                        <td><button onclick="DarkMode()" class="inputButton ToggleDarkModeButton">🌗</button></td>
                     </tr>
                 </table>
             </nav>
         </div>
 
-        <!-- This will be used Later in upcoming task, DONOT DELETE 
-        <div class="BoxForContents">
-            <h2>Categories</h2>
-            <table style="padding-bottom: 20px;">
-                <tr>
-                    <td><form action="categories/sneakers.html"><button type = "submit" class="ImageButton"><img src="img/sneakers_img.jpg" class="categoryProducts">Sneakers</button></form></td>
-                    <td><form action="categories/formals.html"><button type = "submit" class="ImageButton"><img src="img/formal.jpg" class="categoryProducts">Formal</button></form></td>
-                    <td><form action="categories/atheletics.html"><button type = "submit" class="ImageButton"><img src="img/athletic.jpg" class="categoryProducts">Atheletic</button></form></td>
-                </tr>
-            </table>
-        </div>
-        -->
-
-        <div class="BoxForContents">
+        <div class="BoxForContents" id="box">
             <h1>Categories</h1>
             <ul class="ListForMainCategory">
                 <table>

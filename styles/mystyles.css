@@ -3,8 +3,7 @@ body{
     margin-top: -1px;
     margin-left: -1px;
     margin-right: -1px;
-    height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 h1{ 
@@ -14,7 +13,31 @@ h1{
     align-items: center;
 }
 
-/* Everything below for General Navigation top bar */
+
+/* Everything below for General Navigation top & bottom bar */
+@media screen and (max-width: 479px){
+    .TableForNav{
+        display: none;
+    }
+
+    .BoxForContents{
+        margin-top: 75px !important;
+        border-radius: 0px !important;
+        height: calc(100vh - 115px);
+        justify-content: start !important;
+    }
+}
+
+@media screen and (min-width: 480px){
+    .ListForNav{
+        display: none;
+    }
+
+    .BoxForContents{
+        width: 60%;
+    }
+}
+
 .Navigation a{
     color: black;
     text-decoration: none;
@@ -24,19 +47,91 @@ h1{
     font-weight: bold;
 }
 
-.ClassForNav  {
+.Navigation h1 a{
+    font-family: 'Brush Script MT', cursive;
+    font-size: 50px;
+}
+
+.ClassForNav {
     align-items: center;
     display: flex;
+    margin-right: 10px;
 }
 
 .Navigation{
     display: flex;
+    align-self: flex-start;
     justify-content: space-between;
     padding: 10px;       
     background-color: #f8f8f8;
-    position: relative;
     height: 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
 }
+
+/* Dark mode */
+.DarkMode{
+    background-color: #282828 !important;
+    color: white !important;
+}
+
+.DarkMode a{
+    text-decoration: none;
+    color: white;
+}
+
+.DarkMode input, .DarkMode select{
+    background-color: #3a3a3a !important;
+    color: white;
+}
+
+.DarkMode h2{
+    color: white;
+}
+
+#navSelect.DarkMode{
+    background-color: #282828 !important;
+}
+
+#box, #navbar, #popup, #popup2, #navSelect{
+    transition: none 0.75s ease;
+}
+
+#indexImg.DarkMode{
+    filter: brightness(50%) contrast(150%);
+}
+
+.BackgroundImage.DarkMode{
+    filter: brightness(50%) blur(5px) contrast(150%);
+}
+
+.ToggleDarkModeButton{
+    width: fit-content !important;
+    font-size: 20px;
+    background: none !important;
+    display: flex;
+}
+
+/* for Goto Mobile view */
+#navSelect{
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #f8f8f8;
+    border: none;
+    appearance: none;
+    padding: 10px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+#navSelect option{
+    font-size: 17px;
+    text-align: center;
+}
+
 
 /* General Classes for all the web pages*/
 .BackgroundImage{
@@ -48,21 +143,25 @@ h1{
     height: 102%;
     width: 102%;
     margin: -1%;
+    top: 0;
 }
 
 .BoxForContents {
     position: relative;
     border-radius: 10px;
-    width: 60%;
     padding: 20px;
+
+    min-width: fit-content;
+    min-height: fit-content;
+    max-width: 800px;
     
     background-color: #f8f8f8;
-    opacity: 97%;
+    opacity: 99%;
 
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 50px auto auto auto;
+    margin: 100px auto auto auto;
     display:flex;
     flex-direction: column;
 
@@ -70,10 +169,66 @@ h1{
     font-weight: bold;
 }
 
+.BoxForContents[hidden] {
+    display: none;
+    
+}
+
 /* Everything below for index.html */
 .indexBody{
     margin-left: -1px; 
     background-color: #f8f8f8;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin-top: unset !important;
+}
+
+.IndexImage{
+    object-fit: cover; 
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 101%;
+    height: 101vh;
+}
+
+.BoxForPopups{
+    margin-top: 100px;
+}
+
+#popup, #popup2{
+    width: 320px;
+    border: none;
+    border-radius: 5px;  
+    text-align: center;
+    opacity: 90%;
+    position: relative;
+    margin: 20px auto;
+}
+
+#popup button, #popup2 button{
+    background-color: #FB4224;
+    color: white;
+    cursor: pointer;
+    border: #ecebeb;
+    border-radius: 10px;
+    height: 35px;
+    width: 115px;
+    margin: 5px;
+}
+
+#popup button:hover, #popup2 button:hover{
+    background-color: #FF8C00; 
+}
+
+
+
+@media screen and (min-width:700px) {
+    #popup, #popup2{
+        width: 445px;
+        height: 150px;
+    }
 }
 
 /* Everything below for login.html, register.html and customer.html*/
@@ -110,6 +265,11 @@ h1{
     width: 115px;
 
     margin: 5px;
+    transition: all 0.5s ease;
+}
+
+.inputButton:disabled{
+    background-color: #F6A89E;
 }
 
 .inputButton a{
@@ -123,16 +283,46 @@ h1{
     background-color: #FF8C00; 
 }
 
+.inputButton:disabled:hover{
+    background-color: #F6A89E;
+    cursor: not-allowed;
+}
+
+.LabelsForRequirements{
+    display: flex;
+    margin: 15px 15%;
+}
+
+label[for="hasUserFiveChar"], 
+label[for="hasUpperLower"], 
+label[for="hasPassTenChar"], 
+label[for="isBothPassSame"]{
+    display: block;
+    text-align: justify;
+    color: red; /* to be changed in global.js */
+    font-weight: bold;
+    margin: 7px auto;
+    transition: all 0.5s ease;
+}
+
+label[for="CheckLogin"] {
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+    
+    display: none; /* to be changed in global.js */
+}
+
 
 
 /* Everything below for logout.html */
 .loginLink{
-    color: #FB4224;
+    color: #FB4224 !important;
     text-decoration:none; 
 }
 
 .loginLink:hover{
-    color: #FF8C00; 
+    color: #FF8C00 !important; 
 }
 
 
@@ -142,41 +332,6 @@ h1{
     font-weight: normal;
     font-family: cursive;
 }
-
-
-
-/* This is not to be used in this Task DO NOT DELETE!
-.categoryProducts{ /* for images */ /*
-    width: 200px;
-    height: 200px;
-    border: none;
-    border-radius: 10px;
-}
-
-.ImageButton{
-    border: #f8f8f8;
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    
-    margin: 5px;;
-    width: 200px;
-    height: 200px;
-
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 17px;
-
-    /* transition: all 0.3s ease; */ /*
-}
-
-.ImageButton:hover{
-    cursor: pointer;
-    transform: scale(1.10);
-}
-
-*/
-
-
-
 
 /* Everything below for categories.html */
 
@@ -188,14 +343,18 @@ h1{
 .CategoryImg img{
     height: 150px;
     width: 150px;
-    border-radius: 75px;
+    border-radius: 90px;
+    border: 2px solid white;
 }
 
 .CategoryIntro{ /* Col2 */
     height: 150px;
-    width: 90%;
+    width: 100%;
     padding-left: 15px;
+    display: block;
 }
+
+
 
 .CategoryRow{
     height: 170px;
@@ -213,6 +372,8 @@ h1{
 
 .ListForMainCategory{
     list-style-type: none;
+    text-align: left;
+    padding: 0;
 }
 
 .ListForSubCategory{
@@ -226,6 +387,12 @@ h1{
     display: inline;
 }
 
+@media screen and (max-width: 479px) {
+    .ListForSubCategory li{
+        display: block;
+    }
+}
+
 .ListForSubCategory a{
     color: #FF8C00;
     text-decoration:none; 
@@ -233,4 +400,46 @@ h1{
 
 .ListForSubCategory a:hover{
     color: #FB4224;
+}
+
+
+
+/* Everything Below of Catalog.html */
+
+.CatalogImg img, #CatalogCollection img{
+    height: 125px;
+    width: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.CatalogImg button, #CatalogCollection button{
+    border: none;
+    background-color: #f8f8f8;
+    border-radius: 50px;
+}
+
+.CatalogInfo{
+    width: 100px;
+}
+
+.CatalogAddto button{
+    background-color: #FB4224;
+    color: white;
+    cursor: pointer;
+    border: #ecebeb;
+    border-radius: 10px;
+    height: 35px;
+    width: 115px;
+    margin: 5px;
+}
+
+.CatalogAddto button:hover{
+    background-color: #FF8C00; 
+}
+
+.BoxForContents.Collection{
+    margin: 20px auto auto auto !important;
+    min-width: 401px !important;
 }

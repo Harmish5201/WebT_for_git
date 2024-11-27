@@ -1,33 +1,80 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
-            About Us
+            StepX
         </title>
         <link rel="stylesheet" href="styles/mystyles.css">
         <link rel="icon" href="img/icon.png">
+        <script src="js/global.js"></script>
     </head>
 
     <body class="loginBody">
         <div class="BackgroundImage"></div> <!-- Background image container -->
-        <div class="Navigation">
-            <h1><a href="index.html">STEPX</a></h1>
+        <div class="Navigation" id="navbar">
+            <h1><a href="index.html">StepX</a></h1>
             <nav class="ClassForNav">
+                <!-- Hidden when widht > 480px -->
+                <div class="ListForNav">
+				<img src="img/icon.png" style="display: none;" onload="checkDarkMode()"> <!--Dummy image load-->
+                    <select id="navSelect" onchange="navigateToPage()">
+                        <option value="" hidden style="text-align: right;">Goto</option>
+                        <option value="login.html">Login</option>
+                        <option value="categories.html">Categories</option>
+                        <option value="catalog.html">Catalog</option>
+                        <option value="about.html">About Us</option>
+                        <option value="cart.html">Cart</option>
+                    </select>
+                </div>
+
                 <table class="TableForNav">
                     <tr>
                         <td><a href="login.html">Login</a></td>
                         <td><a href="categories.html">Categories</a></td>
+                        <td><a href="catalog.html">Catalog</a></td>
+                        <td><a href="about.html">About Us</a></td>
                         <td><a href="cart.html">Cart</a></td>
+                        <td><button onclick="DarkMode()" class="inputButton ToggleDarkModeButton">🌗</button></td>
                     </tr>
                 </table>
             </nav>
         </div>
 
-        <div class="BoxForContents">
-            <h2>About Us</h2>
+        <div class="BoxForContents" id="box">
+            <h1>About Us</h1>
             <p class="StoreInformation">
-        	The Store is still under construction! <br>
-We will bring to you the best available sneakers to one place.
+        	The Store is still under construction! <br> We will bring to you the best available sneakers to one place.
             </p>
+            <u1 class="ListForMainCategory">
+                <table>
+                    <tr class="CategoryRow">
+                        <td class="CategoryImg"><img src="img/black.jpeg" alt="Black Image"></td>
+                        <td class="CategoryIntro">
+                            <li><h2>Harmish Tanna</h2></li>
+                          
+                            
+                        </td>
+                    </tr>
+                    <tr class="CategoryRow"> 
+                        <td  class="CategoryImg"><img src="img/red.jpeg" alt="Red Image"></td>
+                        <td class="CategoryIntro">
+                            <li><h2>Adil Ahmed</h2></li>
+                            
+                            
+                        </td>
+                    </tr>
+                    <tr class="CategoryRow">
+                        <td class="CategoryImg"><img src="img/goldyellow.jpeg" alt="Gold Image"></td>
+                        <td class="CategoryIntro">
+                            <li><h2>Kristi Xhakollari</h2></li>
+                            
+                            
+                        </td>
+                    </tr>
+                </table>
+            </u1>
         </div>
     </body>
 </html>

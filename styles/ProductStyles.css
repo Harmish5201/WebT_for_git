@@ -1,32 +1,56 @@
 /* Override */
 .ProductBody{
-    overflow: scroll !important;
     padding-bottom: 50px;
     height: unset;
 }
 
 .BoxForContents{
-    width: 90% !important;
+    min-width: unset !important;
+    max-width: unset !important;
 }
 
 h2{
     font-size: 30px;
 }
 
+/* Desktop View */
+@media screen and (min-width: 480px) {
+    .BoxForContents{
+        width: 90% !important;
+    }
+
+    .ProductImg img{
+        height: 650px;
+        width: 440px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+}
+
+/* Mobile View */
+@media screen and (max-width: 479px) {
+    .BoxForContents{
+        width: 100% !important;
+        padding: 10px 2px !important;
+    }
+    .ProductTable td{
+        display: block;
+    }
+
+    .ProductImg img{
+        height: 475px;
+        width: 90%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .ProductForm table td{
+        display: inline-block;
+    }
+}
+
 
 /* Others */
-.ProductImg{
-    height: 650px;
-    width: 440px;
-}
-
-.ProductImg img{
-    height: 650px;
-    width: 440px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
 .ProductInfo{
     padding: 10px;
 
@@ -46,7 +70,7 @@ h2{
 }
 
 .ProductForm table td{
-    width: 100px;
+    width: 170px;
 }
 
 .ProductForm label{
@@ -68,10 +92,21 @@ h2{
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.ProductForm button:disabled{
+    background-color: #474143;
+}
+
 .ProductForm button:hover {
     background-color: #3C3B3C; 
     transform: scale(1.05); 
     border: 1px solid #ffffff; 
+}
+
+.ProductForm button:hover:disabled{
+    background-color: #474143;
+    cursor: not-allowed;
+    transform: none;
+    border: none;
 }
 
 .ProductForm input, .ProductForm select{
@@ -80,12 +115,16 @@ h2{
     height: 45px;
     font-size: 19px;
     font-family: Arial;
-    width: 65px;
     border-radius: 10px;
 }
 
 .ProductForm select{
     margin-left: -5px;
+    padding: 1px 2px;
+}
+
+.ProductForm select:focus{
+    border: 1px solid black;
 }
 
 
@@ -102,4 +141,71 @@ h2{
     width: 100%; 
     height: 260px; 
     border: none;
+}
+
+#priceWOTax{
+    width: 120px;
+}
+
+
+/* Product Image Slider */
+#productSlider {
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+#sliderWrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+#sliderWrapper img {
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;                         /* Prevent shrinking */
+}
+
+#prevBtn, #nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Currency */
+#currencySelect {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#productPrice, #convertedPrice {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
 }
