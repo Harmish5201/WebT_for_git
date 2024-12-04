@@ -99,7 +99,7 @@ h1{
     transition: none 0.75s ease;
 }
 
-#indexImg.DarkMode{
+.IndexImage.DarkMode{
     filter: brightness(50%) contrast(150%);
 }
 
@@ -174,7 +174,7 @@ h1{
     
 }
 
-/* Everything below for index.html */
+/* Everything below for index.php */
 .indexBody{
     margin-left: -1px; 
     background-color: #f8f8f8;
@@ -231,7 +231,7 @@ h1{
     }
 }
 
-/* Everything below for login.html, register.html and customer.html*/
+/* Everything below for login.php, register.php and customer.php*/
 
 .Labels{
     font-family: Arial, sans-serif;
@@ -315,7 +315,7 @@ label[for="CheckLogin"] {
 
 
 
-/* Everything below for logout.html */
+/* Everything below for logout.php */
 .loginLink{
     color: #FB4224 !important;
     text-decoration:none; 
@@ -327,13 +327,13 @@ label[for="CheckLogin"] {
 
 
 
-/* Everything below for about.html */
+/* Everything below for about.php */
 .StoreInformation{
     font-weight: normal;
     font-family: cursive;
 }
 
-/* Everything below for categories.html */
+/* Everything below for categories.php */
 
 .CategoryImg{ /* Col1 */
     height: 150px;
@@ -404,7 +404,7 @@ label[for="CheckLogin"] {
 
 
 
-/* Everything Below of Catalog.html */
+/* Everything Below of Catalog.php */
 
 .CatalogImg img, #CatalogCollection img{
     height: 125px;
@@ -442,4 +442,24 @@ label[for="CheckLogin"] {
 .BoxForContents.Collection{
     margin: 20px auto auto auto !important;
     min-width: 401px !important;
+}
+
+
+/* Everything below for cart.php */
+.TableForCart {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+}
+.TableForCart {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+.TableForCart th, .TableForCart td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.TableForCart th {
+    background-color: #efefef;
 }

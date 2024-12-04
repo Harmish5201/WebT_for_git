@@ -14,34 +14,10 @@
     <body class="loginBody">
         <div class="BackgroundImage"></div> <!-- Background image container -->
         <div class="Navigation" id="navbar">
-            <h1><a href="index.html">StepX</a></h1>
+            <h1><a href="index.php">StepX</a></h1>
             <nav class="ClassForNav">
-
-                <!-- Hidden when widht > 480px -->
-                <div class="ListForNav">
-                    <img src="img/icon.png" style="display: none;" onload="checkDarkMode()"> <!--Dummy image load-->
-                    <select id="navSelect" onchange="navigateToPage()">
-                        <option value="" hidden style="text-align: right;">Goto</option>
-                        <option value="login.html">Login</option>
-                        <option value="categories.html">Categories</option>
-                        <option value="catalog.html">Catalog</option>
-                        <option value="about.html">About Us</option>
-                        <option value="cart.html">Cart</option>
-                    </select>
-                </div>
-
-
-                <table class="TableForNav">
-                    <tr>
-                        <td><a href="login.html">Login</a></td>
-                        <td><a href="categories.html">Categories</a></td>
-                        <td><a href="catalog.html">Catalog</a></td>
-                        <td><a href="about.html">About Us</a></td>
-                        <td><a href="cart.html">Cart</a></td>
-                        <td><button onclick="DarkMode()" class="inputButton ToggleDarkModeButton">🌗</button></td>
-                    </tr>
-                </table>
-            </nav>
+			    <?php include "nav.html"; ?>
+		    </nav>
         </div>
 
         <div class="BoxForContents" id = "box">
@@ -78,7 +54,7 @@
                         <tr>
                             <td>
                                 <button type="submit" class="inputButton" id="SubmitLogin" disabled>Sign in</button>
-                                <button class="inputButton" onclick="window.location.href='registration.html'">Register</button>
+                                <button class="inputButton" onclick="window.location.href='registration.php'">Register</button>
                             </td>
                         </tr>
                     </table>

@@ -26,7 +26,7 @@ function addToCollection(button) {
     const collectImg = document.createElement('td');
 
     switch (productName) {
-        case 'Air Force':
+        case 'AIR FORCE':
             AirForceQty += 1;
             productQty = AirForceQty;
             break;
@@ -101,7 +101,7 @@ function checkInputForLogin() {
         }
     }
 
-    // loop to check Lowercase in password
+    // loop to check Lowercase in username
     for (let char of username) {
         if (char >= "a" && char <= "z") {
             hasLowerCase = true;
@@ -148,7 +148,7 @@ function checkInputForSignup() {
         }
     }
 
-    // loop to check Lowercase in password
+    // loop to check Lowercase in username
     for (let char of username) {
         if (char >= "a" && char <= "z") {
             hasLowerCase = true;
@@ -202,12 +202,12 @@ function DarkMode(){
     document.getElementById("navSelect").classList.toggle("DarkMode");
     try{
         document.getElementById("indexImg").classList.toggle("DarkMode")
-        document.getElementById("popup2").classList.toggle("DarkMode");
         document.getElementById("popup").classList.toggle("DarkMode");
         
     } catch(e) {
         document.getElementById("box").classList.toggle("DarkMode");
         document.querySelector('.BackgroundImage').classList.toggle('DarkMode');
+        document.getElementById("convertedPrice").classList.toggle('DarkMode');
 
     }
 }
@@ -222,83 +222,71 @@ function checkDarkMode(){
     }
 }
 
+// All of the below part is for products.html
 
-// uses: products.html
-function getTotalPrice(priceWOTax){
-    const taxes = 0.19;
-    priceWOTax = parseFloat(priceWOTax);
-    console.log(priceWOTax);
-    if(priceWOTax < 1 || isNaN(priceWOTax)){
-        document.getElementById('product_price').innerText = " Invalid";
-        document.getElementById('AddToCartButton').disabled = true;
-        return;
-    }
-    let priceWithTax = priceWOTax + (priceWOTax * taxes);
-    document.getElementById('product_price').innerText = " " + priceWithTax;
-    document.getElementById('AddToCartButton').removeAttribute('disabled');
+// Global variable to track the current slide
+let currentIndex = 0;
+
+function scrollPrevImg() {
+    const sliderWrapper = document.getElementById("sliderWrapper");
+    const totalNumberOfSlides = sliderWrapper.children.length;
+
+    // if currentIndex = 0 => 1, and vice verse
+    currentIndex = (currentIndex + 1) % totalNumberOfSlides;
+    console.log(currentIndex);
+    const offset = -currentIndex * 300; 
+    sliderWrapper.style.transform = `translateX(${offset}px)`;
 }
 
-
-// Image slider on Product pages
-document.addEventListener("DOMContentLoaded", () => {
-    let currentIndex = 0; // Keeps track of the current slide
+function scrollNextImg() {
     const sliderWrapper = document.getElementById("sliderWrapper");
-    const slides = sliderWrapper.children; // Get all slides
-    const totalSlides = slides.length;
+    const totalNumberOfSlides = sliderWrapper.children.length;
 
-    document.getElementById("prevBtn").addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // Loop backward
-        updateSlider();
-    });
+    // if currentIndex = 1 => 0, and vice verse
+    currentIndex = (currentIndex + 1) % totalNumberOfSlides;
+    console.log(currentIndex);
 
-    document.getElementById("nextBtn").addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % totalSlides; // Loop forward
-        updateSlider();
-    });
-
-    function updateSlider() {
-        const offset = -currentIndex * 300; // Slide width
-        sliderWrapper.style.transform = `translateX(${offset}px)`; // Update position
-    }
-});
-
-// Currency conversion rates
-const conversionRates = {
-    EUR: 1, // Base currency
-    USD: 1.1, // 1 EUR = 1.1 USD
-    GBP: 0.85, // 1 EUR = 0.85 GBP
-    INR: 90, // 1 EUR = 90 INR
-};
-
-let currentPriceWithTax = 0; // Store the latest calculated price with taxes
+    const offset = -currentIndex * 300;
+    sliderWrapper.style.transform = `translateX(${offset}px)`;
+}
 
 // Calculate total price with taxes
 function getTotalPrice(priceWOTax) {
+    let currentPriceWithTax = 0; // Store the latest calculated price with taxes
+
     const taxes = 0.19; // 19% VAT
     priceWOTax = parseFloat(priceWOTax);
 
     if (priceWOTax < 1 || isNaN(priceWOTax)) {
-        document.getElementById('product_price').innerText = "Invalid";
-        document.getElementById('convertedPrice').innerText = "--";
+        document.getElementById('product_price').innerText = " Invalid";
+        document.getElementById('convertedPrice').innerText = " --";
         document.getElementById('AddToCartButton').disabled = true;
         return;
     }
 
     // Calculate price with tax
     currentPriceWithTax = priceWOTax + (priceWOTax * taxes);
-    document.getElementById('product_price').innerText = `${currentPriceWithTax.toFixed(2)} €`;
+    document.getElementById('product_price').innerText = ` ${currentPriceWithTax.toFixed(2)} €`;
 
     // Update converted price
     convertCurrency();
-    document.getElementById('AddToCartButton').removeAttribute('disabled');
 }
 
-// Convert currency dynamically
 function convertCurrency() {
+    currentPriceWithTax = parseFloat(document.getElementById("product_price").innerText);
+
+    // Currency conversion rates
+    const conversionRates = {
+        EUR: 1, // Base currency
+        USD: 1.1, // 1 EUR = 1.1 USD
+        GBP: 0.85, // 1 EUR = 0.85 GBP
+        INR: 90, // 1 EUR = 90 INR
+    };
     const currency = document.getElementById("currencySelect").value;
     const conversionRate = conversionRates[currency];
 
     // Calculate converted price
+    console.log(currency);
     const convertedPrice = (currentPriceWithTax * conversionRate).toFixed(2);
     const currencySymbol = {
         EUR: "€",
@@ -308,5 +296,5 @@ function convertCurrency() {
     }[currency];
 
     // Update converted price display
-    document.getElementById("convertedPrice").innerText = `${convertedPrice} ${currencySymbol}`;
+    document.getElementById("convertedPrice").innerText = ` ${convertedPrice} ${currencySymbol}`;
 }

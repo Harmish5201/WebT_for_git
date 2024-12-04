@@ -1,0 +1,22 @@
+<!-- Hidden when widht > 480px -->
+<div class="ListForNav">
+	<img src="img/icon.png" style="display: none;" onload="checkDarkMode()"> <!--Dummy image load-->
+	<select id="navSelect" onchange="navigateToPage()">
+		<option value="" hidden style="text-align: right;">Goto</option>
+		<option value="login.php">Login</option>
+		<option value="categories.php">Categories</option>
+		<option value="about.php">About Us</option>
+		<option value="cart.php">Cart</option>
+	</select>
+</div>
+
+<!-- Hidden when width < 490px -->
+<table class="TableForNav">
+	<tr>
+		<td><a href="login.php">Login</a></td>
+		<td><a href="categories.php">Categories</a></td>
+		<td><a href="about.php">About Us</a></td>
+		<td><a href="cart.php">Cart</a></td>
+		<td><button onclick="DarkMode()" class="inputButton ToggleDarkModeButton">🌗</button></td>
+	</tr>
+</table>

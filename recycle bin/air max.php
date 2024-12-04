@@ -15,7 +15,7 @@
     <body class="ProductBody">
         <div class="BackgroundImage"></div> <!-- Background image container -->
         <div class="Navigation" id="navbar">
-            <h1><a href="../index.html" class="homeLink">StepX</a></h1>
+            <h1><a href="../index.php" class="homeLink">StepX</a></h1>
             <div class = "ClassForNav">
 
                 <!-- Hidden when widht > 480px -->
@@ -23,20 +23,20 @@
                     <img src="../img/icon.png" style="display: none;" onload="checkDarkMode()"> <!--Dummy image load-->
                     <select id="navSelect" onchange="navigateToPage()">
                         <option value="" hidden style="text-align: right;">Goto</option>
-                        <option value="../login.html">Login</option>
-                        <option value="../categories.html">Categories</option>
-                        <option value="../catelog.html">Catelog</option>
-                        <option value="../about.html">About Us</option>
-                        <option value="../cart.html">Cart</option>
+                        <option value="../login.php">Login</option>
+                        <option value="../categories.php">Categories</option>
+                        <option value="../catelog.php">Catelog</option>
+                        <option value="../about.php">About Us</option>
+                        <option value="../cart.php">Cart</option>
                     </select>
                 </div>
 
 
                 <table class="TableForNav">
                     <tr>
-                        <td><a href="../login.html">Login</a></td>
-                        <td><a href="../catalog.html">Catalog</a></td>
-                        <td><a href="../cart.html">Cart</a></td>
+                        <td><a href="../login.php">Login</a></td>
+                        <td><a href="../catalog.php">Catalog</a></td>
+                        <td><a href="../cart.php">Cart</a></td>
                         <td><button onclick="DarkMode()" class="inputButton ToggleDarkModeButton">🌗</button></td>
                     </tr>
                 </table>
@@ -53,8 +53,8 @@
                                 <img src="../img/Air Max.jpeg" alt="Air Max 1">
                                 <img src="../img/Air Max 2.jpeg" alt="Air Max 2">
                             </div>
-                            <button id="prevBtn">❮</button>
-                            <button id="nextBtn">❯</button>
+                            <button id="prevBtn" onclick="scrollPrevImg()">❮</button>
+                            <button id="nextBtn" onclick="scrollNextImg()">❯</button>
                         </div>
                     </td>
 					
